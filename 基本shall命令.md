@@ -38,3 +38,14 @@
 	grep (-v 反向搜索) (-n 显示行号) (-c 显示匹配行数) (-e 可用于制定多个匹配模式) pattern [file] 在文件中查找匹配pattern的内容
 	gzip file_name 压缩制定的文件
 	tar function [options] object1 object2... tar 命令是给整个目录结构创建归档文件的简便方法。 tar -zxvf filename.tgz可用于解压
+
+
+###理解shell
+1. shell的父子关系
+	可以在bash中输入bash命令，产生bash的子进程并进入子进程，通过ps --forest可以查看父子进程之间的层次关系，使用exit退出子进程
+2. 进程列表
+	(pwd; ls; de /etc; pwd; cd; pwd; ls) 把命令列表放在括号里就构成进程列表，生成了一个子shell来执行对应的命令。产生子shell会明显拖慢处理速度。命令执行完之后会返回父shell
+	(pwd; ls; de /etc; pwd; cd; pwd; ls; echo $BASH_SUBSHELL) 会返回产生子shell的个数（是否产生子shell）
+3. 后台模式
+	sleep 60& 把进程置入后台（睡眠60秒）
+	jobs 用于显示后台作业信息
