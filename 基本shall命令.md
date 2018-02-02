@@ -33,4 +33,8 @@
 5. 查看设备磁盘空间
 	df命令可以查看所有已挂载磁盘的使用情况
 	du命令可以显示某个特定目录（默认情况下是当前目录）的磁盘使用情况。 -h -s
-6. 
+6. 处理数据文件
+	sort (-n 按数字数值排序) (-M 按月份排序) file_name
+	grep (-v 反向搜索) (-n 显示行号) (-c 显示匹配行数) (-e 可用于制定多个匹配模式) pattern [file] 在文件中查找匹配pattern的内容
+	gzip file_name 压缩制定的文件
+	tar function [options] object1 object2... tar 命令是给整个目录结构创建归档文件的简便方法。 tar -zxvf filename.tgz可用于解压
