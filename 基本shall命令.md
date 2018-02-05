@@ -47,5 +47,9 @@
 	(pwd; ls; de /etc; pwd; cd; pwd; ls) 把命令列表放在括号里就构成进程列表，生成了一个子shell来执行对应的命令。产生子shell会明显拖慢处理速度。命令执行完之后会返回父shell
 	(pwd; ls; de /etc; pwd; cd; pwd; ls; echo $BASH_SUBSHELL) 会返回产生子shell的个数（是否产生子shell）
 3. 后台模式
-	sleep 60& 把进程置入后台（睡眠60秒）
+	sleep 60& 把进程置入后台（睡眠60秒）[通过在指令后加上&把进程置入后台]
 	jobs 用于显示后台作业信息
+4. 协程
+	携程可以同时做两件事：在后台生成一个子shell，并在这个子shell中执行命令
+	eg. coproc sleep 10 
+	eg. coproc My_Job { sleep 10; } 给协程命名（注意空格）
